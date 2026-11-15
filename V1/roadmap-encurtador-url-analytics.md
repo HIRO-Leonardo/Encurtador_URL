@@ -7,7 +7,10 @@ Cada fase tem um objetivo e um critério de "pronto". Só passe para a próxima 
 ## Fase 1: Organizar o que você já tem
 
 **Objetivo:** código limpo e com camadas.
-
+@ExceptionHandler(MethodArgumentNotValidException.class)
+public ResponseEntity errorMethod(){
+return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+}
 - [X] Criar o `UrlService` e tirar a lógica do controller
 - [X] Mover o redirect para a raiz (`/{id}`), com o link curto igual ao que a API devolve
 - [X] Tirar o `plusMinutes(1)` e definir um tempo de vida razoável
@@ -19,8 +22,8 @@ Cada fase tem um objetivo e um critério de "pronto". Só passe para a próxima 
 **Objetivo:** a API não quebra com entrada ruim.
 
 - Validar a URL (só `http`/`https`, não vazia)
-- Tratar erros com respostas JSON claras (`@ControllerAdvice`)
-- Devolver 404 quando o link não existe ou expirou
+- [X] Tratar erros com respostas JSON claras (`@ControllerAdvice`)
+- [X] Devolver 404 quando o link não existe ou expirou
 
 **Pronto quando:** você consegue mandar lixo para a API e ela responde com um erro limpo, sem Whitelabel Error Page.
 
